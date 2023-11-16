@@ -3,6 +3,7 @@ import { useState } from "react";
 function ImageSearch({ searchImagesAxios }) {
   const [searchTerm, setSearchTerm] = useState("");
 
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     searchImagesAxios(searchTerm);

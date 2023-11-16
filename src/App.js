@@ -24,19 +24,23 @@ const searchImagesWithAxios = async (valueToSearchInTheApi) => {
 function App() {
 
   const [arrayImages, setArrayImages] = useState([])
+  const [myImage, setMyImage]=useState([])
+
   const searchImagesAxios= async (term)=>{
     const response = await searchImagesWithAxios(term) 
     console.log(response)
+
+      setMyImage(response);
   }
 
 
   const personas = [
     {
-      name: "Maynor",
+      name: "Jackseni",
       edad: 23,
     },
 
-    {
+     {
       name: "Heidy",
       edad: 22,
     },
@@ -52,7 +56,10 @@ function App() {
   return (
     <div>
       <ImageSearch searchImagesAxios={searchImagesAxios} />
-      <ImageList personas={personas} handleGetImageListValue= {handleGetImageListValue} />
+      <ImageList personas={personas} 
+      handleGetImageListValue= {handleGetImageListValue}
+      myImage={myImage.length > 0 ? [myImage[0]]:[] }
+       />
       
     </div>
   );

@@ -1,4 +1,10 @@
-function ImageList({personas, handleGetImageListValue}) {
+function ImageList({personas, handleGetImageListValue, myImage}) {
+
+    const firtImageToRender = myImage.map((image,index)=>{
+        return <img src={image.urls.reg} alt="picture" key={index}/>   
+        
+    })
+
     const valuee = 43000;
     const itemsToRender = personas.map((item,index)=>{
         console.log(item)
@@ -8,11 +14,18 @@ function ImageList({personas, handleGetImageListValue}) {
             </div>
         )
     })
+
+
     return ( 
         <div>
             {/* <button onClick={()=>handleGetImageListValue(valuee,valuee+1)}>Click Me</button> */}
-            {itemsToRender}
+            {itemsToRender}  
+            <div>
+                {firtImageToRender}
+            </div>
+            
         </div>
+        
      );
 }
 
